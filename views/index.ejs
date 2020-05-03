@@ -1,0 +1,13 @@
+<%- include("partials/header") %> 
+
+<% blog_posts.forEach(post => { %>
+    <div>
+        <h2><%= post.data().title %> </h2>
+        <img src="<%= post.data().imageURL %> " alt="">
+        <span><%= new Date(post.createTime.seconds*1000) %> </span>
+        <a class="ui button" href="/blogs/<%= post.id %>">More info</a>
+        <!-- <p><%= post.data().body %> </p> -->
+    </div>
+<% }) %>
+
+<%- include("partials/footer") %> 

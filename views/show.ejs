@@ -1,0 +1,13 @@
+<%- include("partials/header") %> 
+
+<div class="ui main text container segment">
+    <div class="ui huge header">
+        <%= post.data().title %> 
+        <h2><%= post.data().title %> </h2>
+        <img src="<%= post.data().imageURL %> " alt="">
+        <span><%= new Date(post.createTime.seconds*1000) %> </span>
+        <a class="ui button" href="/blogs/<%= post.id %>">More info</a>
+    </div>
+</div>
+
+<%- include("partials/footer") %> 
