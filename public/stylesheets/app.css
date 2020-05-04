@@ -5,3 +5,8 @@ i.icon {
 #header-blog {
     border-radius: 0%;
 }
+
+#delete {
+    display: inline;
+    float: right;
+}

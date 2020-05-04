@@ -3,11 +3,23 @@
 <div class="ui main text container segment">
     <div class="ui huge header">
         <%= post.data().title %> 
-        <h2><%= post.data().title %> </h2>
-        <img src="<%= post.data().imageURL %> " alt="">
-        <span><%= new Date(post.createTime.seconds*1000) %> </span>
-        <a class="ui button" href="/blogs/<%= post.id %>">More info</a>
     </div>
+    <div class="ui top attached segment">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= post.data().imageURL %> " alt="">
+            <div class="content">
+                <span><%= new Date(post.createTime.seconds*1000).toDateString() %> </span>
+            </div>
+            <div class="description">
+                <p><%- post.data().body %> </p>
+            </div>
+            <a class="ui green button" href="/blogs/<%= post.id %>/edit">EDIT</a>
+            <form id="delete" class="ui form" action="/blogs/<%= post.id %>?_method=DELETE" method="POST">
+                <button class="ui red button" type="submit">DELETE</button>
+            </form>
+        </div>
+    </div>
+    <!-- <a class="ui button" href="/blogs/<%= post.id %>">More info</a> -->
 </div>
 
 <%- include("partials/footer") %> 

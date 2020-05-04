@@ -1,13 +1,37 @@
 <%- include("partials/header") %> 
 
-<% blog_posts.forEach(post => { %>
-    <div>
-        <h2><%= post.data().title %> </h2>
-        <img src="<%= post.data().imageURL %> " alt="">
-        <span><%= new Date(post.createTime.seconds*1000) %> </span>
-        <a class="ui button" href="/blogs/<%= post.id %>">More info</a>
-        <!-- <p><%= post.data().body %> </p> -->
+<div class="ui main text container">
+    <div class="ui huge header">
+        RESTful Blog App
     </div>
-<% }) %>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blog_posts.forEach(post => { %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= post.data().imageURL %> " alt="">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blogs/<%= post.id %>"><%= post.data().title %> </a>
+                        <div class="meta">
+                            <span><%= new Date(post.createTime.seconds*1000).toDateString() %> </span>
+                        </div>
+                        <div class="description">
+                            <p><%- post.data().body.substring(0,100) %>... </p>
+                        </div>
+                    </div>
+                    <div class="extra">
+                        <a class="ui floated button" href="/blogs/<%= post.id %>">
+                            More info
+                            <i class="right chevron icon">
+                            </i>
+                        </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
 
 <%- include("partials/footer") %> 

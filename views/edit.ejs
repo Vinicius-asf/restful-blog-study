@@ -2,23 +2,24 @@
 
 <div class="ui main text container segment">
     <div class="ui huge header">
-        New Post
+        Edit "<%= post.data().title %> " Post
     </div>
-    <form class="ui form" action="/blogs" method="post">
+    <form class="ui form" action="/blogs/<%= post.id %>?_method=PUT" method="POST">
         <div class="field">
             <label for="blog-title">Blog Title:</label>
-            <input required type="text" name="blog[title]" placeholder="title">
+            <input required type="text" name="blog[title]" placeholder="title" value="<%= post.data().title %> ">
         </div>
         <div class="field">
             <label for="blog-image">Blog Image URL</label>
-            <input type="text" name="blog[imageURL]" placeholder="image">
+            <input type="text" name="blog[imageURL]" placeholder="image" value="<%= post.data().imageURL %> ">
         </div>
         <div class="field">
             <label for="blog-content">Blog Content</label>
-            <textarea required name="blog[body]" id="" cols="30" rows="10"></textarea>
+            <textarea required name="blog[body]" id="" cols="30" rows="10"><%= post.data().body %></textarea>
         </div>
         <button class="ui button" type="submit">Submit!</button>
     </form>
 </div>
+
 
 <%- include("partials/footer") %> 
